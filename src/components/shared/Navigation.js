@@ -6,8 +6,8 @@ import "../../css/Navigation.css";
 export const Navigation = () => {
   return (
     <div className="container-navigation">
-      <Link to="/basicposition">Basic Position</Link>
       <Link to="/introduction">Introduction</Link>
+      <Link to="/basicposition">Basic Position</Link>
       <Link to="/level1">Level1</Link>
       <Link to="/level2">Level2</Link>
       <Link to="/level3">Level3</Link>
