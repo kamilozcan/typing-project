@@ -12,7 +12,7 @@ export const Introduction = () => {
       </div>
       <div className="main-container">
         <div className="div-container">
-          <h2 className="div-title">Learn Touch Typing</h2>
+          <h2 className="div-title">Touch Typing</h2>
           <ul className="div-paragraph">
             <li>
               Touch typing is the essential skill of typing on a keyboard

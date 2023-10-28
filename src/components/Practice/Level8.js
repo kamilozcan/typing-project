@@ -60,8 +60,17 @@ export const Level8 = () => {
     return new Array(NUMB_OF_WORDS).fill(null).map(() => randomWords());
   }
 
-  function start() {
+  function isCapsLockOn(event) {
+    return event.getModifierState("CapsLock");
+  }
+
+  function start(event) {
     if (status === "finished" || !isRunning) {
+      if (isCapsLockOn(event)) {
+        alert("Please turn off Caps Lock before starting the game.");
+        return;
+      }
+
       setWords(generateWords());
       setCurrentWordIndex(0);
       setCorrect(0);
@@ -209,7 +218,7 @@ export const Level8 = () => {
             />
             <div className="input-group-append">
               {!isRunning && (
-                <Button variant="info" onClick={start}>
+                <Button variant="info" onClick={(e) => start(e)}>
                   Start
                 </Button>
               )}
