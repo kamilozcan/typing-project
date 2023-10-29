@@ -22,6 +22,7 @@ export const Level1 = () => {
   const [status, setStatus] = useState("waiting");
   const [isRunning, setIsRunning] = useState(false);
   const [previousScore, setPreviousScore] = useState(0);
+  const [previousIncorrect, setPreviousIncorrect] = useState(0)
   const [previousAccuracy, setPreviousAccuracy] = useState(0);
 
   const [showConfetti, setShowConfetti] = useState(false);
@@ -38,6 +39,11 @@ export const Level1 = () => {
     const storedPreviousScore = localStorage.getItem("previousScore");
     if (storedPreviousScore) {
       setPreviousScore(parseInt(storedPreviousScore));
+    }
+
+    const storedPreviousIncorrect = localStorage.getItem("previousIncorrect")
+    if (storedPreviousIncorrect) {
+      setPreviousIncorrect(parseInt(storedPreviousIncorrect))
     }
 
     const storedPreviousAccuracy = localStorage.getItem("previousAccuracy");
@@ -103,6 +109,9 @@ export const Level1 = () => {
 
             localStorage.setItem("previousScore", correct);
             setPreviousScore(correct);
+            
+            localStorage.setItem("previousIncorrect", incorrect)
+            setPreviousIncorrect(incorrect)
 
             const totalWords = correct + incorrect;
 
@@ -264,11 +273,15 @@ export const Level1 = () => {
       {status === "finished" && (
         <Row className="mt-4">
           <Col className="text-center">
-            <p className="h5">Words per minute:</p>
+            <p className="h5">WPM</p>
             <p className="display-4 text-primary">{correct}</p>
           </Col>
           <Col className="text-center">
-            <p className="h5">Accuracy:</p>
+            <p className="h5">Icorrect Words</p>
+            <p className="display-4 text-primary">{incorrect}</p>
+          </Col>
+          <Col className="text-center">
+            <p className="h5">Accuracy</p>
             <p className="display-4 text-info">
               {Math.round((correct / (correct + incorrect)) * 100)} %
             </p>
@@ -285,11 +298,15 @@ export const Level1 = () => {
       {status === "finished" && (
         <Row className="mt-4">
           <Col className="text-center">
-            <p className="h5">Words per minute:</p>
+            <p className="h5">WPM</p>
             <p className="display-4 text-primary">{previousScore}</p>
           </Col>
           <Col className="text-center">
-            <p className="h5">Accuracy:</p>
+            <p className="h5">Incorrect Words</p>
+            <p className="display-4 text-primary">{previousIncorrect}</p>
+          </Col>
+          <Col className="text-center">
+            <p className="h5">Accuracy</p>
             <p className="display-4 text-info">{previousAccuracy}%</p>
           </Col>
         </Row>
