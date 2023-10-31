@@ -150,8 +150,16 @@ export const Level = ({ validLetters }) => {
       setCurrentWordIndex(currentWordIndex + 1);
       setCurrentCharIndex(-1);
     } else if (keyCode === 8) {
-      setCurrentCharIndex(currentCharIndex - 1);
-      setCurrentChar("");
+      if (currentInput === "" && currentCharIndex === -1) {
+        return;
+      } else {
+        if (currentCharIndex === -1) {
+          setCurrentChar(words[currentWordIndex - 1][currentCharIndex]);
+        } else {
+          setCurrentCharIndex(currentCharIndex - 1);
+          setCurrentChar("");
+        }
+      }
     } else {
       setCurrentCharIndex(currentCharIndex + 1);
       setCurrentChar(key);
@@ -183,18 +191,18 @@ export const Level = ({ validLetters }) => {
       isCurrentWord && charIdx === currentCharIndex && char === currentChar;
     const isIncorrectChar =
       isCurrentWord && charIdx === currentCharIndex && char !== currentChar;
-    const isIncorrectWord = !wordCorrectness[wordIdx];
+    const isCorrectWord = wordCorrectness[wordIdx];
 
     if (isCorrectChar) {
       return "has-background-success";
     } else if (isIncorrectChar) {
       return "has-background-danger";
-    } else if (isIncorrectWord) {
+    } else if (!isCorrectWord) {
       return "has-background-danger";
     }
 
     if (isCurrentWord) {
-      return "";
+      return "has-background-grey";
     } else if (charIdx >= words[wordIdx].length) {
       return "has-background-danger";
     }
