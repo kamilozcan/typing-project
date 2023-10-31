@@ -1,10 +1,7 @@
 import React from "react";
-import { Navigation } from "../shared/Navigation";
+import { Level } from "../shared/Level";
 
 export const Level3 = () => {
-  return (
-    <div>
-      <Navigation />
-    </div>
-  );
+  const validLetters = ["a", "s", "d", "f", "j", "k", "l", ";"];
+  return <Level validLetters={validLetters} />;
 };

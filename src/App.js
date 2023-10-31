@@ -10,6 +10,8 @@ import { Level5 } from "./components/Practice/Level5";
 import { Level6 } from "./components/Practice/Level6";
 import { Level7 } from "./components/Practice/Level7";
 import { Level8 } from "./components/Practice/Level8";
+import { Level9 } from "./components/Practice/Level9";
+import { Level10 } from "./components/Practice/Level10";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 function App() {
@@ -29,6 +31,8 @@ function App() {
           <Route path="/level6" element={<Level6 />} />
           <Route path="/level7" element={<Level7 />} />
           <Route path="/level8" element={<Level8 />} />
+          <Route path="/level9" element={<Level9 />} />
+          <Route path="/level10" element={<Level10 />} />
         </Routes>
       </Router>
     </div>

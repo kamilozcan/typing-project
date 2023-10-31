@@ -16,6 +16,8 @@ export const Navigation = () => {
       <Link to="/level6">Level6</Link>
       <Link to="/level7">Level7</Link>
       <Link to="/level8">Level8</Link>
+      <Link to="/level9">Level9</Link>
+      <Link to="/level10">Level10</Link>
     </div>
   );
 };
