@@ -269,7 +269,7 @@ export const Level10 = () => {
             <p className="display-4 text-primary">{correct}</p>
           </Col>
           <Col className="text-center">
-            <p className="h5">Icorrect Words</p>
+            <p className="h5">Incorrect Words</p>
             <p className="display-4 text-primary">{incorrect}</p>
           </Col>
           <Col className="text-center">
