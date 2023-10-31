@@ -173,12 +173,11 @@ export const Level = ({ validLetters }) => {
       const updatedCorrectness = [...wordCorrectness];
       updatedCorrectness[currentWordIndex] = false;
       setWordCorrectness(updatedCorrectness);
+      setIncorrect(incorrect + 1);
     }
     if (doesItMatch) {
       setCorrect(correct + 1);
-    } else {
-      setIncorrect(incorrect + 1);
-    }
+    } 
   }
 
   function getCharClass(wordIdx, charIdx, char) {
