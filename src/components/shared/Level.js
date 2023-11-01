@@ -2,10 +2,9 @@ import React, { useState, useEffect, useRef } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Button, Container, Row, Col, Card } from "react-bootstrap";
 import Confetti from "react-confetti";
-import { Navigation } from "../shared/Navigation";
 import "../../css/Level.css";
 
-export const NUMB_OF_WORDS = 200;
+export const NUMB_OF_WORDS = 120;
 export const SECONDS = 60;
 
 export const Level = ({ validLetters }) => {
@@ -177,7 +176,7 @@ export const Level = ({ validLetters }) => {
     }
     if (doesItMatch) {
       setCorrect(correct + 1);
-    } 
+    }
   }
 
   function getCharClass(wordIdx, charIdx, char) {
@@ -211,9 +210,6 @@ export const Level = ({ validLetters }) => {
 
   return (
     <Container>
-      <div>
-        <Navigation />
-      </div>
       <Row className="countdown">
         <Col className="text-center">
           <h2 className="display-4">{countDown}</h2>
@@ -276,7 +272,7 @@ export const Level = ({ validLetters }) => {
             <p className="display-4 text-primary">{correct}</p>
           </Col>
           <Col className="text-center">
-            <p className="h5">Icorrect Words</p>
+            <p className="h5">Incorrect Words</p>
             <p className="display-4 text-primary">{incorrect}</p>
           </Col>
           <Col className="text-center">
