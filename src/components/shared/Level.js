@@ -74,6 +74,10 @@ export const Level = ({ validLetters }) => {
     return event.getModifierState("CapsLock");
   }
 
+  const hideConfetti = () => {
+    setShowConfetti(false);
+  };
+
   function start(event) {
     if (status === "finished" || !isRunning) {
       if (isCapsLockOn(event)) {
@@ -116,7 +120,7 @@ export const Level = ({ validLetters }) => {
             setPreviousAccuracy(accuracy);
 
             setShowConfetti(true);
-            // setTimeout(hideConfetti, 5000)
+            setTimeout(hideConfetti, 10000);
 
             return SECONDS;
           } else {
@@ -126,6 +130,7 @@ export const Level = ({ validLetters }) => {
       }, 1000);
     }
   }
+
   function stop() {
     if (intervalRef.current) {
       clearInterval(intervalRef.current);
